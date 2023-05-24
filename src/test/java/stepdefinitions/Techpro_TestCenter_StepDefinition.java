@@ -7,6 +7,9 @@ import io.cucumber.java.en.When;
 import pages.Techpro_TestCenter;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class Techpro_TestCenter_StepDefinition {
 
@@ -53,4 +56,58 @@ public class Techpro_TestCenter_StepDefinition {
    techproTestCenter.football.shouldBe(checked);
   }
  }
+
+ @And("kullanici yil olarak {int} ay olarak {string} gun olarak {int} secer")
+ public void kullaniciYilOlarakAyOlarakGunOlarakSecer(int yil, String ay, int gun) {
+  sleep(3);
+techproTestCenter.year.selectOptionByValue(String.valueOf(yil));
+sleep(3);
+techproTestCenter.month.selectOption(ay);
+  sleep(3);
+  techproTestCenter.day.selectOption(gun-1);
+  sleep(3);
+
+ }
+
+    @And("kullanici prompt butonuna tiklar")
+    public void kullaniciPromptButonunaTiklar() {
+        techproTestCenter.prompt.click();
+    }
+
+    @And("kullanici alerte {string} metnini yazar ve OK e tiklar")
+    public void kullaniciAlerteMetniniYazarVeOKETiklar(String arg0) {
+        switchTo().alert().sendKeys(arg0);
+        switchTo().alert().accept();
+    }
+
+    @Then("kullanici sonucun {string} icerdiğini dogrular")
+    public void kullaniciSonucunIcerdiginiDogrular(String arg0) {
+        techproTestCenter.result.shouldHave(text(arg0));
+    }
+
+    @And("switch to frame {int}")
+    public void switchToFrame(int frame) {
+        switchTo().frame(frame-1);
+
+    }
+
+    @And("kullanici bank to techproeducation.com linkine tiklar")
+    public void kullaniciBankToTechproeducationComLinkineTiklar() {
+        techproTestCenter.button.click();
+    }
+
+    @And("kullanici acilan sayfaya gecer")
+    public void kullaniciAcilanSayfayaGecer() {
+        switchTo().window(1);
+    }
+
+    @And("reklami kapat")
+    public void reklamiKapat() {
+        techproTestCenter.reklam.click();
+    }
+
+    @And("sayfanin url sini al")
+    public void sayfaninUrlSiniAl() {
+        System.out.println("Yeni sayfa url si: "+ url());
+    }
 }
