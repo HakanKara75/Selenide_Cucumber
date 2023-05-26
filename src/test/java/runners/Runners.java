@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resocurces/features",
         glue = {"stepdefinitions"},
         dryRun = false,
-        tags ="@iframe"
+        tags ="@headless3"
 )
 public class Runners {
 }
