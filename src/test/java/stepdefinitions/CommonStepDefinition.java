@@ -2,13 +2,7 @@ package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
-import javax.xml.crypto.Data;
-
+import io.cucumber.java.en.*;
 import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.*;
