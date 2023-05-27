@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -47,10 +48,7 @@ public class CommonStepDefinition {
         Configuration.holdBrowserOpen = true;
     }
 
-    @And("tum ekran goruntusunu alir")
-    public void tumEkranGoruntusunuAlir() {
-        screenshot(new Date().toString());
-    }
+
 
     @Given("kullanici browser tipini {string} olarak secer")
     public void kullaniciBrowserTipiniOlarakSecer(String arg0) {
@@ -75,5 +73,11 @@ public class CommonStepDefinition {
                 Configuration.browser = "chrome";
                 break;
         }
+    }
+
+    @And("tum ekran goruntusunu alir")
+    public void tumEkranGoruntusunuAlir() {
+
+        Selenide.screenshot(new Date().toString());
     }
 }

@@ -11,5 +11,5 @@ public class HerokuappPage {
     public SelenideElement hello= $(By.xpath("//div[@id='finish']"));
     public SelenideElement image= $(".lnXdpd");
 
-
+    public SelenideElement amazonFooter= $(".navFooterMoreOnAmazon");
 }
